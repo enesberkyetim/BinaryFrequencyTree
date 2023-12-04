@@ -98,6 +98,9 @@ struct node* comparison_online(struct node* root){
 		}
 		else {
 			comparison_online(left);
+			if (right != NULL) {
+				comparison_online(right);
+			}
 		}	
 	}
 
@@ -117,7 +120,6 @@ struct node* comparison_online(struct node* root){
 				temp_left = NULL;
 			}
 			
-		
 			*root = *(root->rightPtr);
 			root->leftPtr = temp_root;
 			
@@ -128,6 +130,9 @@ struct node* comparison_online(struct node* root){
 		}
 		else {
 			comparison_online(right);
+			if (left != NULL) {
+				comparison_online(left);
+			}
 		}
 	}
 	
